@@ -1,0 +1,13 @@
+<div class="min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600 ">
+<div *ngIf="user" class="bg-gradient-to-r from-black via-gray-700 to-yellow-600  shadow-lg shadow-gray-900 rounded-lg p-6 flex justify-between items-center text-white ">
+  <div>
+    <h1 *ngIf="user.firstName || user.lastName" class="text-2xl font-bold mb-2">Welcome, {{ user.firstName }} {{ user.lastName }}!</h1>
+    <p *ngIf="user.firstName" class="">First Name: <span class="font-medium">{{ user.firstName }}</span></p>
+    <p *ngIf="user.lastName" class=" mb-1">Last Name: <span class="font-medium">{{ user.lastName }}</span></p>
+    <p *ngIf="user.userName" class=" mb-1">Username: <span class="font-medium">{{ user.userName }}</span></p>
+    <p *ngIf="user.email" class=" mb-1">Email: <span class="font-medium">{{ user.email }}</span></p>
+    <p *ngIf="user.isActive" class=" mb-1">Status: <span class="font-medium">{{ user.isActive ? 'Active' : 'Inactive' }}</span></p>
+  </div>
+  <img *ngIf="user.profileImage" [src]="user.profileImage" alt="Profile Image" class="ml-4 h-24 w-24 object-cover rounded-full shadow-lg">
+</div>
+</div>

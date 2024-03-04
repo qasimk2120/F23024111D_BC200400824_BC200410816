@@ -1,0 +1,53 @@
+<div>
+  <app-notification></app-notification>
+</div>
+<div class="shadow rounded-lg p-6 flex justify-between items-center min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600" >
+<div class="lg:w-4/12 mt-12 p-12 shadow-lg shadow-black mx-auto">
+  <h3 class="text-3xl text-center font-semibold py-5">Reset Your Password</h3>
+  <form [formGroup]="resetForm" class="flex flex-col">
+    <div class="mb-4 bg-blue-200 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
+      <p class="font-bold flex items-center">
+        <i class="fas fa-info  mr-2"></i>
+        Information
+      </p>
+      <p>Please use a strong password</p>
+    </div>
+    <div class="flex flex-col mt-2 mb-1">
+      <input
+        formControlName = "password"
+        class="p-2 border border-gray-300 rounded"
+        type="password"
+        placeholder="Password "/>
+      <span *ngIf="resetForm.hasError('required', 'password') && resetForm.controls['password'].dirty" class="text-red-500">Password is required</span>
+    </div>
+    <div class="flex flex-col mt-2 mb-1">
+      <input
+        formControlName = "confirmPassword"
+        class="p-2 border border-gray-300 rounded"
+        type="password"
+        placeholder="Confirm Password "/>
+    </div>
+    <span *ngIf="resetForm.hasError('required', 'confirmPassword') && resetForm.controls['confirmPassword'].dirty"
+          class="text-red-500">
+      Confirm Password is required</span>
+    <span *ngIf="resetForm.hasError('confirmPasswordValidator', 'confirmPassword')"
+          class="text-red-500">Password's dont match</span>
+    <div class ="mt-2">
+      <button [disabled]="resetForm.invalid"
+              [class.disabled]="resetForm.invalid"
+              (click)="reset()"
+              class="bg-indigo-500 w-1/4 mr-3 p-2 rounded-md text-gray-50  hover:border-black
+              border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110"
+      >Recover</button>
+
+      <button [disabled]="resetForm.invalid"
+              [class.disabled]="resetForm.invalid"
+              (click)=" reset()"
+              class="bg-red-600 w-1/4 mr-3 p-2 rounded-md text-gray-50 hover:border-black
+              border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110"
+      >Cancel</button>
+    </div>
+
+  </form>
+</div>
+</div>

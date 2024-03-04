@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+///Main Structure of Backend\\\
+
+index.js is main file
+Using Module way in our application
+Storing database info in env such as URL for database
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+///Full Project Structure\\\
+We will be using MCV structure
+---------------------------------------------------------------------
+Controllers will have the logic
+---------------------------------------------------------------------
+index.js will have all the trigger points and will go to routing folder where i will have routes
+Models will have my Basic Models
+---------------------------------------------------------------------
+Utils folder will have al the functions that we will be using again and again, eg used for outsourcing reusable code
+---------------------------------------------------------------------
+in the modals folder i have user.js modal which has the basic user schema with all datatypes we will be using
+I also used roles schema under Role.js that will have an id and a name which willl bascially have the roles such as admin, users etc and will be bind and create a reationship to the user schema
+---------------------------------------------------------------------
+using bcrypt in Auth.controller.js for hashing the password when registering a user inside register function
+using bcrypt.compare in Auth.controller.js for logging in when loggin in
+---------------------------------------------------------------------
+inside utils.js we have the success and error messages middleware handeling and providing errors alll over the application
+---------------------------------------------------------------------
+in UserToken,js in modals we have the schema for storing User tokens
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+//Front end Details\\\
+
+Using Tailwind on the frontend for styles
+Components folder will have all the shared components
+Pages folderwill have all pages like login page, signup page etc
+---------------------------------------------------------------------
+Using newer method of injecting services e.j router = inject(Router) so no longer to add services to constructor
+Sercices folder will have the all the outsourced code
+Validate folder folder will have custom validators
+---------------------------------------------------------------------
+Using Angular/Material Snackbar to display notifications
+---------------------------------------------------------------------
+Dashboard in pages will have our home page when logged in
+Created a custom validator in validators folder to validate that the password and confirm password match
+---------------------------------------------------------------------
+In Auth service i am handling Authorizations like register login and forgot password
+It only contains the requests, requests URLS are inside api.ur;.ts file
+---------------------------------------------------------------------
+custom Snackbar service that displays notifications effectively like when a user is successfully logged in
+---------------------------------------------------------------------
+Displaying span error messages after inputs for duplicate username and email in the registration.ts
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------

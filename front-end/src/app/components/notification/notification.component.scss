@@ -1,0 +1,29 @@
+.notification {
+  position: fixed;
+  top: 85px; /* Adjust this value to move the notification up or down */
+  left: 50%; /* Center the notification horizontally */
+  transform: translateX(-50%); /* This is necessary to perfectly center the notification */
+  width: 300px; /* Adjust this value to change the width of the notification */
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
+  border-radius:15px;
+  animation: fadeOut 3.5s forwards;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.success {
+  background-color: #10B981; /* green */
+  color: white;
+}
+
+.error {
+  background-color: #EF4444; /* red */
+  color: white;
+}

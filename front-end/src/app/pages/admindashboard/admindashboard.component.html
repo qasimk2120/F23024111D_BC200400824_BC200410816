@@ -1,0 +1,77 @@
+<div class ="bg-white shadow  p-6 flex justify-between  min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
+<div class="container mx-auto px-4 mt-4 shadow-lg shadow-gray-900">
+  <div class="bg-amber-600 text-gray-800 font-bold hover:text-white py-2 px-4 mb-1 rounded border-black border-2">
+    <h2 class="text-2xl text-center ">Manage Users</h2>
+  </div>
+  <table class="table-auto w-full mb-8 caret divide-y divide-gray-200 text-sm leading-4">
+    <thead class="bg-yellow-700 shadow-black shadow">
+    <tr>
+      <th class="px-4 py-2 border-2 border-black">#</th>
+      <th class="px-4 py-2 border-2 border-black">First Name</th>
+      <th class="px-4 py-2 border-2 border-black">Last Name</th>
+      <th class="px-4 py-2 border-2 border-black">Email</th>
+      <th class="px-4 py-2 border-2 border-black w-1/4">Account Status</th>
+      <th class="px-4 py-2 border-2 border-black w-1/4">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Table rows -->
+    <tr *ngFor="let user of users; index as i" class="bg-yellow-200 shadow-black shadow">
+      <th class="px-4 py-2 border-2 border-black">{{ i + 1 }}</th>
+      <td class="px-4 py-2 border-2 border-black">
+        <input
+          *ngIf="isEditing && userToUpdate._id === user._id"
+          [(ngModel)]="user.firstName"
+          class="w-full px-3 py-2 border rounded border-gray-300 border-black">
+        <span *ngIf="!isEditing || userToUpdate._id !== user._id">{{ user.firstName }}</span>
+      </td>
+      <td class="px-4 py-2 border-2 border-black">
+        <input
+          *ngIf="isEditing && userToUpdate._id === user._id"
+          [(ngModel)]="user.lastName"
+          class="w-full px-3 py-2 border rounded border-gray-300 border-black">
+        <span *ngIf="!isEditing || userToUpdate._id !== user._id">{{ user.lastName }}</span>
+      </td>
+      <td class="px-4 py-2 border-2 border-black">
+        <input
+          *ngIf="isEditing && userToUpdate._id === user._id"
+          [(ngModel)]="user.email"
+          class="w-full px-3 py-2 border rounded border-gray-300 border-black">
+        <span *ngIf="!isEditing || userToUpdate._id !== user._id">{{ user.email }}</span>
+      </td>
+      <td class="px-4 py-2 border-2 border-black">{{user.isActive ? 'User Active' : 'User Deactivated'}}</td>
+      <td class="px-4 py-4 border-r-2 border-b-2 border-black flex justify-between">
+        <!-- Activate and deactivate buttons -->
+        <button
+          *ngIf="!isEditing || userToUpdate._id !== user._id"
+          [disabled]="user.isActive"
+          [class.disabled]="user.isActive"
+          class="px-4 py-2 bg-green-500 text-white rounded border border-black mr-4"
+          (click)="activateUser(user._id)">Activate</button>
+        <button
+          *ngIf="!isEditing || userToUpdate._id !== user._id"
+          [disabled]="!user.isActive"
+          [class.disabled]="!user.isActive"
+
+          class="px-4 py-2 bg-red-500 text-white rounded border border-black mr-4"
+          (click)="deactivateUser(user._id)">Deactivate</button>
+        <!-- Edit button -->
+        <button
+          *ngIf="!isEditing || userToUpdate._id !== user._id"
+          class="px-4 py-2 bg-blue-500 text-white rounded border border-black mr-4"
+          (click)="populateUpdateForm(user)">Edit</button>
+        <!-- Update and Cancel buttons -->
+        <button
+          *ngIf="isEditing && userToUpdate._id === user._id"
+          class="px-4 py-2 bg-blue-500 text-white rounded border border-black mr-4"
+          (click)="updateUser(user._id)">Update</button>
+        <button
+          *ngIf="isEditing && userToUpdate._id === user._id"
+          class="px-4 py-2 bg-gray-500 text-white rounded border border-black"
+          (click)="resetUpdateForm()">Cancel</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>

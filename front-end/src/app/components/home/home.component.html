@@ -1,0 +1,49 @@
+<div>
+<!--  <app-notification></app-notification>-->
+</div>
+<div class="min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
+    <div class="text-center bg-black text-white py-20 ">
+      <h1 class="text-6xl">Edit Masters</h1>
+      <p class="text-2xl">Welcome to Edit Masters your Pdf and Photo editing suite</p>
+
+      <div class="mt-4 ">
+        <button class="bg-amber-600 text-white rounded-lg px-6 py-3 mr-4  hover:border-black border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110 " [routerLink]="['/register']">Get Started</button>
+        <button class="bg-amber-600 text-white rounded-lg px-6 py-3  hover:border-black border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110" [routerLink]="['/login']">Login</button>
+      </div>
+    </div >
+    <div class=" bg-gray-700">
+      <div class="flex flex-wrap -mx-4 ">
+        <div class="w-full md:w-1/3 px-4">
+          <div
+            class="bg-gray-700 shadow-yellow-600 shadow-xl  rounded overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl  font-bold">PDF Editing Tools</h3>
+              <p class="text-white">Annotate,Edit, merge and work on PDFs along with your team using the collaborative features</p>
+              <p class="text-sm text-white">Released</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/3 px-4">
+          <div class="bg-gray-700 shadow-yellow-600 shadow-xl rounded overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold">Photo Editing Tools</h3>
+              <p class="text-white">Design, crop, and manipulate your images with ease and with your team using the collaborative features</p>
+              <p class="text-sm text-white">Not Released Yet</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/3 px-4">
+          <div class="bg-gray-700 shadow-yellow-600 shadow-xl  rounded overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold">Collaborate features</h3>
+              <p class="text-white">Collaborate and share pdfs and photos with your friends and colleagues to work together on projects</p>
+              <p class="text-sm text-white">Not Released Yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<app-footer />
