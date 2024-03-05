@@ -9,8 +9,6 @@ import cors from  'cors';
 
 
 
-
-
 //declaring my app
 const app = express();
 
@@ -38,7 +36,6 @@ app.use(cookieParser());
 
 //Middleswares for  all routes
 
-//role routes
 
 //auth routes
 app.use('/api/auth', authRoute);
@@ -46,6 +43,8 @@ app.use('/api/auth', authRoute);
 //Admin routes for finding all users
 app.use('/api/users', usersAllRoute);
 app.use('/', fileUploadRoute);
+
+
 
 
 
