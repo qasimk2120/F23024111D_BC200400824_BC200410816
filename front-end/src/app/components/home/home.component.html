@@ -2,13 +2,17 @@
 <!--  <app-notification></app-notification>-->
 </div>
 <div class="min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
-    <div class="text-center bg-black text-white py-20 ">
+    <div class="text-center bg-black text-white py-20 bg-gradient-to-r from-black via-gray-700 to-yellow-600">
       <h1 class="text-6xl">Edit Masters</h1>
       <p class="text-2xl">Welcome to Edit Masters your Pdf and Photo editing suite</p>
 
       <div class="mt-4 ">
-        <button class="bg-amber-600 text-white rounded-lg px-6 py-3 mr-4  hover:border-black border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110 " [routerLink]="['/register']">Get Started</button>
-        <button class="bg-amber-600 text-white rounded-lg px-6 py-3  hover:border-black border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110" [routerLink]="['/login']">Login</button>
+        <button *ngIf="!(isLoggedIn$ | async)" class="bg-amber-600 text-white rounded-lg px-6 py-3 mr-4 hover:border-black
+        border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110 "
+                [routerLink]="['/register']">Get Started</button>
+        <button *ngIf="!(isLoggedIn$ | async)" class="bg-amber-600 text-white rounded-lg px-6 py-3  hover:border-black
+        border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110"
+                [routerLink]="['/login']">Login</button>
       </div>
     </div >
     <div class=" bg-gray-700">

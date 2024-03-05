@@ -1,8 +1,9 @@
 <div>
   <app-notification></app-notification>
 </div>
-<div class="shadow rounded-lg p-6 flex justify-between items-center min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600" >
-<div class="lg:w-4/12 mt-6 p-12 shadow-lg shadow-gray-700 mx-auto">
+<div class ="min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
+<div class="lg:w-4/12  p-12 shadow-lg shadow-black mx-auto bg-gradient-to-r from-black via-gray-700 to-yellow-600" >
+
   <h3 class="text-3xl text-center font-semibold py-5">Register</h3>
   <form [formGroup]="registerForm" class="flex flex-col">
     <div class="flex flex-col mt-2 mb-1">
@@ -67,7 +68,8 @@
   </form>
   <div class="flex justify-center mt-5">
     <span>Already Have Account?</span>
-    <a routerLink="/login" class="text-indigo-600 ml-2 cursor-pointer">Login Here</a>
+    <a routerLink="/login" class="text-indigo-600 ml-2 cursor-pointer hover:text-white">Login Here</a>
   </div>
 </div>
+
 </div>

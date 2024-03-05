@@ -27,11 +27,6 @@
 
     <button  [disabled]="adminloginForm.invalid" [class.disabled]="adminloginForm.invalid" (click)="adminlogin()" class="bg-indigo-500 p-2 rounded mt-2 text-white  hover:border-black border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110">Login</button>
   </form>
-  <div class="flex justify-between mt-4">
-    <div>
-      <a routerLink="/forget-password" class="text-indigo-600 ml-2 cursor-pointer hover:text-white">Forgot Password</a>
-    </div>
-  </div>
   <div class="mt-4 text-right">
     <button routerLink="/login" class="text-red-500 cursor-pointer bg-gray-200 px-2 py-1 rounded  hover:border-black border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110
    ">→ User Login</button>
