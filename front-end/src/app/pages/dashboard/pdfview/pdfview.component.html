@@ -1,4 +1,6 @@
-<div class="shadow rounded-lg p-6 flex justify-between items-center min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
-<div #viewer class=webviewer></div>
-<button routerLink="/pdfupload">Go Back</button>
+<div class="shadow rounded-lg p-6 flex flex-col justify-between items-start min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
+  <button class="self-end mb-4 cursor-pointer bg-gray-200 px-2 py-1 rounded-lg  hover:border-black
+   border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110"
+          routerLink="/pdfupload"><i class="fa-solid fa-circle-left"></i> Go Back</button>
+  <div #viewer class="webviewer w-800 h-1000 mx-auto"></div>
 </div>

@@ -12,10 +12,15 @@
       </span>
     </div>
   </div>
+
   <ng-container *ngIf="!isLoggedIn">
     <span routerLink="/login" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">Login</span>
-    <span  routerLink="/register" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">User Registration</span>
+    <span  routerLink="/register" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">
+      <i class="fa-solid fa-user-plus"></i>
+      User Registration</span>
   </ng-container>
+
+<!--  Checking and displaying navigation for User -->
   <ng-container *ngIf="isLoggedIn && !isAdmin">
     <!-- Navigation links for users -->
     <button id="menu-button"
@@ -26,14 +31,19 @@
       </svg>
     </button>
     <div id="nav-items" class="lg:flex space-x-4" [class.hidden]="!showMenu">
-      <span routerLink="/dashboard" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">Dashboard</span>
-      <span routerLink="/profile" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">User Profile</span>
+      <span routerLink="/dashboard" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">
+        <i class="fa-solid fa-table-columns"></i>
+        Dashboard</span>
+      <span routerLink="/profile" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">
+        <i class="fa-solid fa-user"></i>
+        User Profile</span>
       <span (click)="logout()"
               class="bg-indigo-500 m-2 px-8 sp-2 pt-1 rounded mt-2 text-white hover:border-gray-700
               border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110"
-      >Logout</span>
+      > <i class="fa-solid fa-right-from-bracket"></i> Logout </span>
     </div>
   </ng-container>
+  <!--  Checking and displaying navigation for Admin -->
   <ng-container *ngIf="isLoggedIn && isAdmin">
     <!-- Navigation links for admins -->
     <button id="menu-button" class="lg:hidden p-2 focus:outline-none focus:shadow-outline" (click)="showMenu = !showMenu">
@@ -42,12 +52,16 @@
       </svg>
     </button>
     <div id="nav-items" class="lg:flex space-x-4" [class.hidden]="!showMenu">
-      <span routerLink="/admin-dashboard" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">Admin Dashboard</span>
-      <span routerLink="/admin-profile" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">Admin Profile</span>
+      <span routerLink="/admin-dashboard" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">
+        <i class="fa-solid fa-table-columns"></i>
+        Admin Dashboard</span>
+      <span routerLink="/admin-profile" class="text-xl cursor-pointer text-gray-800 font-bold m-3 hover:text-white">
+        <i class="fa-solid fa-user-tie">
+        </i> Admin Profile</span>
       <span (click)="logout()"
             class="bg-indigo-500 m-2 px-8 sp-2 pt-1 rounded mt-2 text-white hover:border-gray-700
               border-transparent border-2 transition-transform duration-300 ease-in-out active:scale-110"
-      >Logout</span>
+      > <i class="fa-solid fa-right-from-bracket"></i>  Logout </span>
     </div>
   </ng-container>
 </nav>

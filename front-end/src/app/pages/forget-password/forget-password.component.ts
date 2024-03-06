@@ -28,7 +28,7 @@ export   default class ForgetPasswordComponent implements OnInit {
   notificationService = inject(NotificationService);
   ngOnInit():void {
   this.forgetForm = this.fb.group({
-    email : ['', Validators.compose([Validators.required, Validators.email])]
+    email: ['', Validators.compose([Validators.required, Validators.email])]
   })
   }
   sendEmail(){

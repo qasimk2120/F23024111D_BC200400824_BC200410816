@@ -1,25 +1,34 @@
-<app-notification></app-notification>
 <div class="min-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600">
-
-<div class="max-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600 py-6 flex flex-col justify-center sm:py-12">
-  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-    <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 rounded-3xl sm:p-10 shadow-lg shadow-gray-900">
-      <div class="max-w-md mx-auto">
-        <div class="flex items-center space-x-5">
-          <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
-            <p class="text-sm text-gray-500 font-normal leading-relaxed">Upload File to be Edited</p>
+  <div class="max-h-screen bg-gradient-to-r from-black via-gray-700 to-yellow-600 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 rounded-3xl sm:p-10 shadow-lg shadow-gray-900">
+        <div class="max-w-md mx-auto ">
+          <div class="flex items-center space-x-5">
+            <div class="block pl-10 font-semibold text-xl text-gray-700">
+              <p class="text-lg text-black font-normal leading-relaxed r pl-12 mb-2">Upload PDF File to be Edited</p>
+            </div>
           </div>
-        </div>
-        <div class="divide-y divide-gray-200">
-          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-            <div class="flex flex-col">
-              <label class="leading-loose">Upload File</label>
-              <input type="file" (change)="onFileSelected($event)" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+          <div class="mb-4 bg-blue-200 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
+            <p class="font-bold flex items-center">
+              <i class="fa-solid fa-circle-info"></i>
+              Information
+            </p>
+            <p>Please select the PDF file you want to edit and upload it using the button below.
+            You will be taken to the Editing Feature shortly after</p>
+          </div>
+          <div class="divide-y divide-gray-200">
+            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+              <div class="flex flex-col">
+                <label class="leading-loose mb-1">Upload File</label>
+                <div class="flex items-center px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+                  <input type="file" (change)="onFileSelected($event)" class="flex-grow">
+                  <i class="fa-solid fa-upload"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

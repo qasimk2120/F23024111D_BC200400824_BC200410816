@@ -49,6 +49,9 @@ export default class PdfUploadComponent {
           this.router.navigate(['pdfview']);
         }, 5000);
         this.notificationService.show(`File Uploaded Successfully: ${file.name}`, 'success');
+        setTimeout(() => {
+          this.notificationService.show(`Taking you to editor`, 'success');
+        },5000);
         // Reset the file input after the upload is complete
         const inputElement = document.querySelector('input[type="file"]') as HTMLInputElement;
         if (inputElement) {
