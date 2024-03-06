@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf4e880-a55e-47cf-a940-2dffa7390b53" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/edit_masters_final_prot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/edit_masters_final_prot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/admindashboard/admindashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/admindashboard/admindashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/adminlogin/adminlogin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/adminlogin/adminlogin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/adminregister/adminregister.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/adminregister/adminregister.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdf-upload/pdf-upload.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdf-upload/pdf-upload.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdf-upload/pdf-upload.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdf-upload/pdf-upload.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdfview/pdfview.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdfview/pdfview.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/forget-password/forget-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/forget-password/forget-password.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/forget-password/forget-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/forget-password/forget-password.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/reset/reset.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/reset/reset.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="aaf4e880-a55e-47cf-a940-2dffa7390b53" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +70,7 @@
       <workItem from="1709316906325" duration="49206000" />
       <workItem from="1709423630135" duration="69998000" />
       <workItem from="1709643724099" duration="143000" />
-      <workItem from="1709643894499" duration="19974000" />
+      <workItem from="1709643894499" duration="20190000" />
     </task>
     <servers />
   </component>
