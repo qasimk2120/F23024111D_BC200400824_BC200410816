@@ -5,8 +5,7 @@ import {AuthService} from "../../services/auth.service";
 import {Router, RouterModule} from "@angular/router";
 import {NotificationService} from "../../services/notification.service";
 import {NotificationComponent} from "../../components/notification/notification.component";
-import {GoogleSigninButtonModule, SocialAuthServiceConfig} from "@abacritt/angularx-social-login";
-import { SocialAuthService, GoogleLoginProvider } from "angularx-social-login";
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,7 +14,6 @@ import { SocialAuthService, GoogleLoginProvider } from "angularx-social-login";
     ReactiveFormsModule,
     RouterModule,
     NotificationComponent,
-    GoogleSigninButtonModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
