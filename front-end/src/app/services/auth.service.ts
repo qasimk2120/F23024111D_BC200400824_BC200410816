@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import {Injectable, inject, Component} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {apiUrls} from "../api.urls";
 import {BehaviorSubject} from "rxjs";
@@ -7,18 +7,18 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
+  http = inject(HttpClient)
   //Managing admin navigations so that admin is routed to his dashboard and links are updated accordingly
   _isAdmin = new BehaviorSubject<boolean>(false);
   readonly isAdmin$ = this._isAdmin.asObservable();
   isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  http = inject(HttpClient)
+
   //Restoring admin or user logged in status if access token/cookie available in local storage
 
 
   initAuthState() {
     const userItem = localStorage.getItem('user');
     const adminItem = localStorage.getItem('admin');
-
     if (userItem) {
       const user = JSON.parse(userItem);
       this.isLoggedIn$.next(true);
@@ -47,7 +47,6 @@ export class AuthService {
     return this.http.post<any>(`${apiUrls.authServiceApi}login`,loginObj, { withCredentials: true });
 
   }
-
 
 
   sendEmailService(email:string){

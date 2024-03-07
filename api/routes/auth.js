@@ -6,7 +6,8 @@ import {
     loginAdmin,
   sendEmail,
   resetPassword,
-    logout
+    logout,
+  googleSignIn
 } from '../controllers/auth.controller.js';
 import {uploadPDFFile} from "../controllers/file.controller.js";
 
@@ -16,10 +17,17 @@ const router = express.Router();
 router.post('/register', register);
 //login endpoint
 router.post('/login', login);
+//logout endpoint
 router.post('/logout', logout);
-//register as Admin
 
+//google sign in endpoint
+router.post('/google-signin', googleSignIn);
+
+
+
+//register as Admin
 router.post('/admin-register', registerAdmin);
+//admin login endpoint
 router.post('/admin-login', loginAdmin);
 
 //Sending Email for password recovery

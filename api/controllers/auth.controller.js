@@ -3,10 +3,12 @@ import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import  nodemailer from "nodemailer";
+import { OAuth2Client } from 'google-auth-library';
+import UserToken from "../models/UserToken.js";
 import { CreateError } from '../utils/error.js';
 import { CreateSuccess } from '../utils/success.js';
-import UserToken from "../models/UserToken.js";
 
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 //-------------------------------------------------------------------------------------------------------------\\
 // Function to check if user already exists either by username or email
 const checkExistingUser = async (userName, email) => {
@@ -149,7 +151,42 @@ export const login = async (req, res, next) => {
 };
 
 
+//Login and SignUp with Google Account
+export const googleSignIn = async (req, res, next) => {
+  const { token }  = req.body;
 
+  const ticket = await client.verifyIdToken({
+    idToken: token,
+    audience: process.env.GOOGLE_CLIENT_ID,
+  });
+
+  const { name, email, picture, sub: googleId } = ticket.getPayload();
+
+  let user = await checkExistingUser(email);
+
+  if (!user) {
+    user = new User({
+      firstName: name,
+      lastName: name,
+      userName: email,
+      email: email,
+      googleId: googleId,
+      // ... other fields
+    });
+    await user.save();
+  } else if (!user.googleId) {
+    user.googleId = googleId;
+    await user.save();
+  }
+
+  const jwtToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+
+  res.status(200).json({
+    status: 200,
+    message: 'Login Success',
+    data: jwtToken
+  });
+};
 
 
 

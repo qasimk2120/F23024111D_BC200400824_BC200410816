@@ -5,6 +5,8 @@ import {AuthService} from "../../services/auth.service";
 import {Router, RouterModule} from "@angular/router";
 import {NotificationService} from "../../services/notification.service";
 import {NotificationComponent} from "../../components/notification/notification.component";
+import {GoogleSigninButtonModule, SocialAuthServiceConfig} from "@abacritt/angularx-social-login";
+import { SocialAuthService, GoogleLoginProvider } from "angularx-social-login";
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -13,11 +15,14 @@ import {NotificationComponent} from "../../components/notification/notification.
     ReactiveFormsModule,
     RouterModule,
     NotificationComponent,
+    GoogleSigninButtonModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export default class LoginComponent implements OnInit {
+  user!:any;
+  loggedIn!:any;
 
   //injecting form builder
   fb = inject(FormBuilder)
@@ -30,7 +35,6 @@ export default class LoginComponent implements OnInit {
   authService = inject(AuthService)
 
   notificationService = inject(NotificationService)
-
   router = inject(Router);
 
   errorMessageEmail: string = '';
