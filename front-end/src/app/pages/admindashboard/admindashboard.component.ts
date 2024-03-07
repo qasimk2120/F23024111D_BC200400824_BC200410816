@@ -12,9 +12,10 @@ import {NotificationService} from "../../services/notification.service";
   styleUrl: './admindashboard.component.scss'
 })
 export default class AdmindashboardComponent implements OnInit {
+  isEditing: boolean = false;
   users: any[] = [];
   userToUpdate: any = {};
-  isEditing: boolean = false;
+
   notificationService = inject(NotificationService)
   adminCrudService = inject(AdmincrudService)
   ngOnInit(): void {
@@ -24,27 +25,13 @@ export default class AdmindashboardComponent implements OnInit {
   getAllUsers() {
     this.adminCrudService.getAllUsers().subscribe({
       next: (response) => {
-        this.users = response.data;
+        this.users = response.data
       },
       error: (error) => {
         this.notificationService.show(error.message, 'error');
       }
     });
   }
-
-  updateUser(id: string) {
-    this.adminCrudService.updateUser(id, this.userToUpdate).subscribe({
-      next: (response) => {
-        this.notificationService.show(response.message, 'success');
-        this.resetUpdateForm();
-
-      },
-      error: (error) => {
-        this.notificationService.show(error.message, 'error');
-      }
-    });
-  }
-
   activateUser(id: string) {
     this.adminCrudService.activateUser(id).subscribe({
       next: (response) => {
@@ -68,6 +55,19 @@ export default class AdmindashboardComponent implements OnInit {
       }
     });
   }
+  updateUser(id: string) {
+    this.adminCrudService.updateUser(id, this.userToUpdate).subscribe({
+      next: (response) => {
+        this.notificationService.show(response.message, 'success');
+        setTimeout(() => {     this.resetUpdateForm()},2000);
+      },
+      error: (error) => {
+        this.notificationService.show(error.message, 'error');
+      }
+    });
+  }
+
+
 
   populateUpdateForm(user: any) {
     this.userToUpdate = { ...user };

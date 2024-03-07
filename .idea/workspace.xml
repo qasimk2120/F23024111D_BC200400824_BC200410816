@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aaf4e880-a55e-47cf-a940-2dffa7390b53" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/usersAll.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/usersAll.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/admindashboard/admindashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/admindashboard/admindashboard.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +75,7 @@
       <workItem from="1709423630135" duration="69998000" />
       <workItem from="1709643724099" duration="143000" />
       <workItem from="1709643894499" duration="31905000" />
+      <workItem from="1709838987923" duration="44000" />
     </task>
     <servers />
   </component>

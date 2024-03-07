@@ -11,6 +11,7 @@ export const getAllUsers = async (req, res, next) => {
     return next(CreateError(500, 'Internal Server Error' + error.message));
   }
 };
+
 export const getUserById = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id).populate('roles');
