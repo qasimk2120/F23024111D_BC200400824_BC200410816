@@ -51,13 +51,13 @@ export default class ResetComponent implements OnInit {
 
     this.authService.resetPasswordService(resetObj).subscribe({
       next: (res) => {
-        this.notificationService.show( 'Password Recovered Successfully, Headed to Login Page Now', 'success');
+        this.notificationService.show( res.message, 'success');
         this.resetForm.reset();
         setTimeout(() => {
           this.router.navigate(['login']);
         }, 4000);
       }, error: (err) => {
-
+        this.notificationService.show(err.message, 'error');
       }
     })
 

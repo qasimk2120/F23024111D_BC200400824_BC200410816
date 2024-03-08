@@ -44,10 +44,6 @@ const UserSchema = mongoose.Schema(
             required: true,
             ref: 'Role',
         },
-        googleId: {
-            type: String,
-            required: false,
-        },
     },
     {
         timestamps: true,

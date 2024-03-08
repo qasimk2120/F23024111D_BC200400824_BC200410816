@@ -20,7 +20,8 @@ export default class  PdfviewComponent implements AfterViewInit{
   WebViewer({
   path:'../../../assets/lib',
   initialDoc: pdfUrl,
-    extension: 'pdf'
+    extension: 'pdf',
+    licenseKey:'demo:1709929282118:7f20c0ff03000000000dc8c931e60ada82270673dd0efb54dfa5072ab3'
   },this.viewerRef.nativeElement).then(instance => {
 
   });

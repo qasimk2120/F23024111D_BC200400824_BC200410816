@@ -7,9 +7,11 @@ import { OAuth2Client } from 'google-auth-library';
 import UserToken from "../models/UserToken.js";
 import { CreateError } from '../utils/error.js';
 import { CreateSuccess } from '../utils/success.js';
+//----------------------------------------------------------------------------
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 //-------------------------------------------------------------------------------------------------------------\\
+
 // Function to check if user already exists either by username or email
 const checkExistingUser = async (userName, email) => {
   return User.findOne({
@@ -151,44 +153,45 @@ export const login = async (req, res, next) => {
 };
 
 
-//Login and SignUp with Google Account
-export const googleSignIn = async (req, res, next) => {
-  const { token }  = req.body;
-
-  const ticket = await client.verifyIdToken({
-    idToken: token,
-    audience: process.env.GOOGLE_CLIENT_ID,
-  });
-
-  const { name, email, picture, sub: googleId } = ticket.getPayload();
-
-  let user = await checkExistingUser(email);
-
-  if (!user) {
-    user = new User({
-      firstName: name,
-      lastName: name,
-      userName: email,
-      email: email,
-      googleId: googleId,
-      // ... other fields
-    });
-    await user.save();
-  } else if (!user.googleId) {
-    user.googleId = googleId;
-    await user.save();
-  }
-
-  const jwtToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-
-  res.status(200).json({
-    status: 200,
-    message: 'Login Success',
-    data: jwtToken
-  });
-};
-
-
+// //----------------------------------------------------------------------------
+// //Login and SignUp with Google Account
+// export const googleSignIn = async (req, res, next) => {
+//   const { token }  = req.body;
+//
+//   const ticket = await client.verifyIdToken({
+//     idToken: token,
+//     audience: process.env.GOOGLE_CLIENT_ID,
+//   });
+//
+//   const { name, email, picture, sub: googleId } = ticket.getPayload();
+//
+//   let user = await checkExistingUser(email);
+//
+//   if (!user) {
+//     user = new User({
+//       firstName: name,
+//       lastName: name,
+//       userName: email,
+//       email: email,
+//       googleId: googleId,
+//       // ... other fields
+//     });
+//     await user.save();
+//   } else if (!user.googleId) {
+//     user.googleId = googleId;
+//     await user.save();
+//   }
+//
+//   const jwtToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+//
+//   res.status(200).json({
+//     status: 200,
+//     message: 'Login Success',
+//     data: jwtToken
+//   });
+// };
+//
+//
 
 
 //-------------------------------------------------------------------------------------------------------------\\
@@ -237,21 +240,22 @@ export const sendEmail = async (req, res, next) => {
         <p>Dear ${user.userName},</p>
         <p> We have received a request to reset your password for your account with EditMasters. To Complete the password reset process, please click on the button below : </p>
         <a href="${process.env.LIVE_URL}/reset/${token}"><button style="background-color: #4CAF50 ; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Reset Password</button></a>
-        <p>Please note that this link is only valid for a 5 mins. If you did not request a password reset, please disregard this message.</p>
+        <p>Please note that this link is only valid for  5 mins. If you did not request a password reset, please disregard this message.</p>
         <p>Thank you,Edit Masters Team</p>
     </body> 
     </html>`
   };
 
-  console.log('Sending email');
+//----------------------------------------------------------------------------
+  //sending email
 
   mainTransporter.sendMail(mailDetails, async(err, data) => {
     if (err) {
       return next(CreateError(500, 'Something went wrong while sending mail'));
     } else {
-      console.log('Email sent successfully');
+    //Email Sent Successfully
       await newToken.save();
-      console.log('Token saved to database');
+    //Token saved to database untill expiration
       return next(CreateSuccess(200, 'Email was Sent Successfully, Please Check your Inbox'));
     }
   });
@@ -268,7 +272,7 @@ export const resetPassword = (req, res, next) => {
 
   jwt.verify(token, process.env.JWT_SECRET, async (err,data)=>{
   if (err) {
-    return next(CreateError(500, 'Reset Link Expired'));
+    return next(CreateError(401, 'Reset Link Expired'));
   }else {
     const response = data;
     const user = await User.findOne({email: {$regex: '^' + response.email + '$', $options: 'i'}});

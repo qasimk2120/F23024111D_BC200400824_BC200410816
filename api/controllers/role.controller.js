@@ -2,6 +2,7 @@ import Role from '../models/Role.js';
 import { CreateError } from '../utils/error.js';
 import { CreateSuccess } from '../utils/success.js';
 
+//----------------------------------------------------------------------------
 export const createRole = async (req, res, next) => {
   try {
     if (req.body.role && req.body.role !== '') {
@@ -16,6 +17,7 @@ export const createRole = async (req, res, next) => {
   }
 };
 
+//----------------------------------------------------------------------------
 export const updateRole = async (req, res, next) => {
   try {
     const role = await Role.findById({ _id: req.params.id });
@@ -34,6 +36,7 @@ export const updateRole = async (req, res, next) => {
   }
 };
 
+//----------------------------------------------------------------------------
 export const getAllRoles = async (req, res, next) => {
   try {
     const roles = await Role.find({});
@@ -43,6 +46,7 @@ export const getAllRoles = async (req, res, next) => {
   }
 };
 
+//----------------------------------------------------------------------------
 export const deleteRole = async (req, res, next) => {
   try {
     const roleId = req.params.id;

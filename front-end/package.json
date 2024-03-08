@@ -10,7 +10,6 @@
   },
   "private": true,
   "dependencies": {
-    "@abacritt/angularx-social-login": "^2.2.0",
     "@angular/animations": "^17.1.0",
     "@angular/common": "^17.1.0",
     "@angular/compiler": "^17.1.0",
@@ -21,7 +20,6 @@
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
     "@pdftron/webviewer": "^10.7.2",
-    "angularx-social-login": "^4.1.0",
     "googleapis": "^133.0.0",
     "mime": "^4.0.1",
     "ncp": "^2.0.0",

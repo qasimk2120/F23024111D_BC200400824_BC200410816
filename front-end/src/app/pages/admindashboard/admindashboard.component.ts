@@ -59,7 +59,10 @@ export default class AdmindashboardComponent implements OnInit {
     this.adminCrudService.updateUser(id, this.userToUpdate).subscribe({
       next: (response) => {
         this.notificationService.show(response.message, 'success');
-        setTimeout(() => {     this.resetUpdateForm()},2000);
+        setTimeout(() => {
+          this.resetUpdateForm();
+          this.getAllUsers();
+          }, 2000);
       },
       error: (error) => {
         this.notificationService.show(error.message, 'error');

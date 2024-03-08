@@ -25,7 +25,6 @@ export class AuthService {
       this.setAdminStatus(false);
     } else if (adminItem) {
       const admin = JSON.parse(adminItem);
-      console.log(admin);
       this.isLoggedIn$.next(true);
       this.setAdminStatus(true);
     }

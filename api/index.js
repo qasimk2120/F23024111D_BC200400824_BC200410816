@@ -2,51 +2,48 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import authRoute from './routes/auth.js';
-import usersAllRoute from './routes/usersAll.js';
+import adminCrud from './routes/adminCrud.js';
 import fileUploadRoute from './routes/files.js';
 import cookieParser from 'cookie-parser';
 import cors from  'cors';
 
 
-
+//----------------------------------------------------------------------------
 //declaring my app
 const app = express();
-
+//----------------------------------------------------------------------------
 // Setting headers for WebAssembly threads
 app.use((req, res, next) => {
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
   next();
 });
-
+//----------------------------------------------------------------------------
 //using CORS TO allow access
 app.use(cors({
   origin: 'http://localhost:4200',
   credentials: true
 }));
-
+//----------------------------------------------------------------------------
 //config dotenv middleware
 dotenv.config();
-
+//----------------------------------------------------------------------------
 //Middleware for starting app
 app.use(express.json());
-
+//----------------------------------------------------------------------------
 //Installed cookieParser to handle cookies
 app.use(cookieParser());
+//----------------------------------------------------------------------------
+//Middleware for  all routes
 
-//Middleswares for  all routes
-
-
+//----------------------------------------------------------------------------
 //auth routes
 app.use('/api/auth', authRoute);
-
+//----------------------------------------------------------------------------
 //Admin routes for finding all users
-app.use('/api/users', usersAllRoute);
+app.use('/api/users', adminCrud);
 app.use('/', fileUploadRoute);
-
-
-
-
+//----------------------------------------------------------------------------
 
 //Middlewares for Response handlers and getting a nice error response
 app.use((obj, req, res, next) => {
@@ -59,14 +56,7 @@ app.use((obj, req, res, next) => {
     data: obj.data,
   });
 });
-
-
-
-
-
-
-
-
+//----------------------------------------------------------------------------
 //Connecting to my DB
 const connectMongoDB = async () => {
   console.log('Connecting to my Database')
@@ -78,7 +68,7 @@ const connectMongoDB = async () => {
     throw error;
   }
 };
-
+//----------------------------------------------------------------------------
 //Starting backend server
 app.listen(8000, () => {
   connectMongoDB();

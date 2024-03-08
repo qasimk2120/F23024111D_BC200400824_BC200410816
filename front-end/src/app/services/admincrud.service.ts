@@ -16,6 +16,7 @@ export class AdmincrudService {
 
 
   updateUser(id: string, user: any) {
+
     return this.http.put<any>(`${apiUrls.crudapi}/${id}`, user, {withCredentials: true});
   }
 

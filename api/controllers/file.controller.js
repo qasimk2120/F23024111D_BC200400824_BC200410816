@@ -4,6 +4,8 @@ import {CreateError} from "../utils/error.js";
 import {CreateSuccess} from "../utils/success.js";
 import { fileURLToPath } from 'url';
 
+
+//----------------------------------------------------------------------------
 // Setting up storage with multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -18,6 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//----------------------------------------------------------------------------
 export const uploadPDFFile = (req, res) => {
   upload.single('file')(req, res, function(err) {
     if (err instanceof multer.MulterError) {
@@ -30,7 +33,7 @@ export const uploadPDFFile = (req, res) => {
       return res.status(500).json(CreateError(500, err.message));
     }
 
-    // Everything went fine.
+    // If Everything went fine.
 
     // Including the new filename in the response
     const newFilename = req.file.filename;
@@ -38,6 +41,8 @@ export const uploadPDFFile = (req, res) => {
   });
 };
 
+//----------------------------------------------------------------------------
+//Sending file to front end, to the PDFTRON
 export const sendPDFFile = (req, res) => {
   let filename = req.params.filename;
   const dirname = path.dirname(fileURLToPath(import.meta.url));

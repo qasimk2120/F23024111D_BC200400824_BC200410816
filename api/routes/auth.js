@@ -7,12 +7,13 @@ import {
   sendEmail,
   resetPassword,
     logout,
-  googleSignIn
 } from '../controllers/auth.controller.js';
 import {uploadPDFFile} from "../controllers/file.controller.js";
 
+//----------------------------------------------------------------------------
 const router = express.Router();
 
+//----------------------------------------------------------------------------
 //register endpoint
 router.post('/register', register);
 //login endpoint
@@ -21,10 +22,10 @@ router.post('/login', login);
 router.post('/logout', logout);
 
 //google sign in endpoint
-router.post('/google-signin', googleSignIn);
+// router.post('/google-signin', googleSignIn);
 
 
-
+//----------------------------------------------------------------------------
 //register as Admin
 router.post('/admin-register', registerAdmin);
 //admin login endpoint
@@ -37,4 +38,5 @@ router.post('/send-email', sendEmail);
 router.post('/reset-password', resetPassword);
 
 router.post('/file-upload', uploadPDFFile);
+//----------------------------------------------------------------------------
 export default router;
