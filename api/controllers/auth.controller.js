@@ -3,13 +3,13 @@ import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import  nodemailer from "nodemailer";
-import { OAuth2Client } from 'google-auth-library';
+// import { OAuth2Client } from 'google-auth-library';
 import UserToken from "../models/UserToken.js";
 import { CreateError } from '../utils/error.js';
 import { CreateSuccess } from '../utils/success.js';
 //----------------------------------------------------------------------------
-
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+//
+// const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 //-------------------------------------------------------------------------------------------------------------\\
 
 // Function to check if user already exists either by username or email
