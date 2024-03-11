@@ -9,16 +9,20 @@ import cors from  'cors';
 
 
 //----------------------------------------------------------------------------
-//declaring my app
+//Calling a new express application
 const app = express();
+
+
 //----------------------------------------------------------------------------
-// Setting headers for WebAssembly threads
+// Setting headers for WebAssembly threads to remove some warnings
 app.use((req, res, next) => {
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
   res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
   next();
 });
+
+
 //----------------------------------------------------------------------------
 //using CORS TO allow access
 const allowedOrigins = ['http://localhost:4200', 'http://localhost:8000'];
@@ -28,28 +32,31 @@ app.use(cors({
     // allow requests with no origin (like mobile apps or curl requests)
     if(!origin) return callback(null, true);
     if(allowedOrigins.indexOf(origin) === -1){
-      var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
       return callback(new Error(msg), false);
     }
     return callback(null, true);
   },
   credentials: true
 }));
+
 //----------------------------------------------------------------------------
 //config dotenv middleware
 dotenv.config();
 //----------------------------------------------------------------------------
-//Middleware for starting app
+//Middleware function for parsing incoming requests as JSON objects
 app.use(express.json());
+
 //----------------------------------------------------------------------------
-//Installed cookieParser to handle cookies
+//Using cookieParser to handle cookies
 app.use(cookieParser());
+
 //----------------------------------------------------------------------------
 //Middleware for  all routes
 
-//----------------------------------------------------------------------------
 //auth routes
 app.use('/api/auth', authRoute);
+
 //----------------------------------------------------------------------------
 //Admin routes for finding all users
 app.use('/api/users', adminCrud);
@@ -67,6 +74,7 @@ app.use((obj, req, res, next) => {
     data: obj.data,
   });
 });
+
 //----------------------------------------------------------------------------
 //Connecting to my DB
 const connectMongoDB = async () => {
@@ -79,8 +87,9 @@ const connectMongoDB = async () => {
     throw error;
   }
 };
+
 //----------------------------------------------------------------------------
-//Starting backend server
+//Starting backend server after connection to Database is established
 app.listen(8000, () => {
   connectMongoDB();
   console.log('Connected to Backend server on port 8000');
