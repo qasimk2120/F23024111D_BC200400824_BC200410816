@@ -11,6 +11,8 @@
 npm-debug.log
 yarn-error.log
 
+#uploads Folder
+/uploads
 # IDEs and editors
 .idea/
 .project
