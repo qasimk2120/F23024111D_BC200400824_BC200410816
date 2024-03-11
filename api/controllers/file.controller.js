@@ -25,11 +25,9 @@ export const uploadPDFFile = (req, res) => {
   upload.single('file')(req, res, function(err) {
     if (err instanceof multer.MulterError) {
       // A Multer error occurred when uploading.
-      console.error(err);
       return res.status(500).json(CreateError(500, err.message));
     } else if (err) {
       // An unknown error occurred when uploading.
-      console.error(err);
       return res.status(500).json(CreateError(500, err.message));
     }
 

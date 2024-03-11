@@ -240,7 +240,7 @@ export const sendEmail = async (req, res, next) => {
         <p>Dear ${user.userName},</p>
         <p> We have received a request to reset your password for your account with EditMasters. To Complete the password reset process, please click on the button below : </p>
         <a href="${process.env.LIVE_URL}/reset/${token}"><button style="background-color: #4CAF50 ; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Reset Password</button></a>
-        <p>Please note that this link is only valid for  5 mins. If you did not request a password reset, please disregard this message.</p>
+        <p>Please note that this link is only valid for 5 mins. If you did not request a password reset, please disregard this message.</p>
         <p>Thank you,Edit Masters Team</p>
     </body> 
     </html>`
