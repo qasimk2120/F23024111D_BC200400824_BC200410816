@@ -18,26 +18,26 @@ import {NotificationService} from "../../services/notification.service";
   styleUrl: './forget-password.component.scss'
 })
 export   default class ForgetPasswordComponent implements OnInit {
+  notificationService = inject(NotificationService);
+  authService = inject(AuthService);
 
   forgetForm !: FormGroup;
   fb =inject(FormBuilder)
-
-  authService = inject(AuthService);
-  errorMessage: string = '';
   errorMessageEmail: string = '';
-  notificationService = inject(NotificationService);
+
   ngOnInit():void {
   this.forgetForm = this.fb.group({
     email: ['', Validators.compose([Validators.required, Validators.email])]
-  })
+      })
   }
+
   sendEmail(){
     this.authService.sendEmailService(this.forgetForm.value.email).subscribe({
       next: (res)=>{
         this.notificationService.show( 'Email Sent Successfully', 'success');
         this.forgetForm.reset();
       }, error:(err)=>{
-        this.notificationService.show( err.error.message, 'error');
+        this.notificationService.show( 'Token ', 'error');
       }
     })
 

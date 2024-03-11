@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {confirmPasswordValidator} from "../../validators/confirm-password.validator";
 import {AuthService} from "../../services/auth.service";
-import {Router, RouterLink, RouterModule} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {NotificationService} from "../../services/notification.service";
 import {NotificationComponent} from "../../components/notification/notification.component";
 @Component({
@@ -14,22 +14,18 @@ import {NotificationComponent} from "../../components/notification/notification.
   styleUrl: './register.component.scss'
 })
 export  default class RegisterComponent implements OnInit {
-  fb = inject(FormBuilder);  //injecting form builder
-  registerForm !: FormGroup;//initializing Register form of type FormGroup
-
-//Using Injecting to Inject Required services
+  //Using Injecting to Inject Required services
   authService = inject(AuthService);
   notificationService = inject(NotificationService)
   router = inject(Router); //injecting router
 
+  fb = inject(FormBuilder);  //injecting form builder
+  registerForm !: FormGroup;//initializing Register form of type FormGroup
 
   errorMessage: string = '';
   errorMessageEmail: string = '';
   errorMessageUsername: string = '';
 
-  constructor() {
-
-  }
 
   //initializing the form and setting Validators
   ngOnInit(): void {
@@ -41,13 +37,11 @@ export  default class RegisterComponent implements OnInit {
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     }, {validator: confirmPasswordValidator('password', 'confirmPassword')})
-
-
   }
 
   register() {
     this.authService.registerService(this.registerForm.value).subscribe({
-      next: (res) => {
+      next: () => {
         this.notificationService.show('Welcome Onboard 🎊, Account Created Successfully, Please login now', 'success');
         this.registerForm.reset();
         setTimeout(() => {

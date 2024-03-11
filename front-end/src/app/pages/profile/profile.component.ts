@@ -9,7 +9,7 @@ import {CommonModule} from "@angular/common";
   styleUrl: './profile.component.scss'
 })
 export default class ProfileComponent implements OnInit {
-  user: any
+  user: any;
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'||'admin')!);

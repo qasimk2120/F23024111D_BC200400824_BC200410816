@@ -20,7 +20,6 @@ import {NotificationComponent} from "../../components/notification/notification.
 })
 export default class LoginComponent implements OnInit {
   user!:any;
-  loggedIn!:any;
 
   //injecting form builder
   fb = inject(FormBuilder)
@@ -49,25 +48,31 @@ export default class LoginComponent implements OnInit {
   login() {
     this.authService.loginService(this.loginForm.value).subscribe({
       next: (res) => {
-        // Check if the user's account is active
+
+        // Checking if the user's account is active
         if (res.data.isActive) {
-          // Store the user data
+
+          // Storing the user data in the browser storage
           localStorage.setItem("user", JSON.stringify(res.data));
-          // Update the authenticated state
+          // Updating the authenticated state
           this.authService.isLoggedIn$.next(true);
+
           // Set isAdmin to false
           this.authService.setAdminStatus(false);
-          // Show a success notification
-          this.notificationService.show(`Welcome Back ☺️ ${res.data.firstName} ${res.data.lastName} , Taking you to dashboard `, 'success');
+
+          this.notificationService.show(
+            `Welcome Back ☺️ ${res.data.firstName} ${res.data.lastName} , Taking you to dashboard `, 'success');
+
           // Navigate to the dashboard after 3 seconds
           setTimeout(() => {
             this.router.navigate(['dashboard']);
           }, 3000);
-        } else {
-          // If the user's account is not active, redirect them to a separate component
+        }
+        else {
+          // If the user's account is not active, redirecting them to a deactivated page
           this.router.navigate(['deactivatedaccount']);
         }
-        // Reset the form
+        // Resetting the form
         this.loginForm.reset();
       },
       error: (err) => {
