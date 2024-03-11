@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaf4e880-a55e-47cf-a940-2dffa7390b53" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdfview/pdfview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/dashboard/pdfview/pdfview.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/deactivatedaccount/deactivatedaccount.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/deactivatedaccount/deactivatedaccount.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
