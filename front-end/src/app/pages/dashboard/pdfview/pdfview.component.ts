@@ -11,6 +11,8 @@ import {RouterLink} from "@angular/router";
   templateUrl: './pdfview.component.html',
   styleUrl: './pdfview.component.scss'
 })
+
+//Using PDFTRON to display PDF files
 export default class  PdfviewComponent implements AfterViewInit{
   @ViewChild('viewer') viewerRef!: ElementRef;
 
