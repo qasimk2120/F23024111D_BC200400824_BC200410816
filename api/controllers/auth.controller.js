@@ -300,7 +300,6 @@ export const resetPassword = (req, res, next) => {
 
 export const logout = (req, res) => {
   // Clear the HttpOnly cookie
-  console.log('Cookies:', req.cookies);
   res.clearCookie('access_token');
   // Send a success response
   res.status(200).json(CreateSuccess(200, 'Logged out', null));

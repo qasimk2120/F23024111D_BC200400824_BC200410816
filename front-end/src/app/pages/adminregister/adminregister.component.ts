@@ -21,22 +21,17 @@ import {confirmPasswordValidator} from "../../validators/confirm-password.valida
   styleUrl: './adminregister.component.scss'
 })
 export  default class AdminregisterComponent implements OnInit {
-  fb = inject(FormBuilder);  //injecting form builder
-  adminRegisterForm  !: FormGroup;//initializing Register form of type FormGroup
-
-//Using Injecting to Inject Required services
+  //Using Injecting to Inject Required services
   authService = inject(AuthService);
   notificationService = inject(NotificationService)
   router = inject(Router); //injecting router
-
+  fb = inject(FormBuilder);  //injecting form builder
+  adminRegisterForm  !: FormGroup;//initializing Register form of type FormGroup
 
   errorMessage: string = '';
   errorMessageEmail: string = '';
   errorMessageUsername: string = '';
 
-  constructor() {
-
-  }
 
   //initializing the form and setting Validators
   ngOnInit(): void {

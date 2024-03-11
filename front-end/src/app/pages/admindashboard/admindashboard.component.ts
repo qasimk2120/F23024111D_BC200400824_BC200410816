@@ -12,12 +12,13 @@ import {NotificationService} from "../../services/notification.service";
   styleUrl: './admindashboard.component.scss'
 })
 export default class AdmindashboardComponent implements OnInit {
+  notificationService = inject(NotificationService)
+  adminCrudService = inject(AdmincrudService)
+
   isEditing: boolean = false;
   users: any[] = [];
   userToUpdate: any = {};
 
-  notificationService = inject(NotificationService)
-  adminCrudService = inject(AdmincrudService)
   ngOnInit(): void {
     this.getAllUsers();
   }

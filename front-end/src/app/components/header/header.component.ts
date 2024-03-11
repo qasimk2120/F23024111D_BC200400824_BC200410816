@@ -13,16 +13,17 @@ import {NotificationComponent} from "../notification/notification.component";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements   OnInit {
-  showMenu = false;
+  showMenu:boolean = false;
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
+
   router = inject(Router)
+  authService = inject(AuthService)
+  notificationService = inject(NotificationService)
 
   constructor() {
   }
 
-  authService = inject(AuthService)
-  notificationService = inject(NotificationService)
 
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe(isLoggedIn => {

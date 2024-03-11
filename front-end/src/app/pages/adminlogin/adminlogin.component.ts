@@ -23,20 +23,22 @@ import {AdmincrudService} from "../../services/admincrud.service";
 })
 export  default class AdminloginComponent implements OnInit {
   fb = inject(FormBuilder)
-
-  //initializing Register form of type FormGroup
-  adminloginForm !: FormGroup
   //Using Injecting to Inject Required services
   cookieService = inject(CookieService)
   //Injecting required services
   authService = inject(AuthService)
-
   adminCrudService = inject(AdmincrudService)
   notificationService = inject(NotificationService)
-
   router = inject(Router);
 
   errorMessageEmail: string = '';
+  //initializing Register form of type FormGroup
+  adminloginForm !: FormGroup
+
+
+
+
+
 
   ngOnInit(): void {
     this.adminloginForm = this.fb.group({
@@ -49,9 +51,6 @@ export  default class AdminloginComponent implements OnInit {
   adminlogin() {
     this.authService.loginAdminService(this.adminloginForm.value).subscribe({
       next: (res) => {
-
-        // Check if the response includes a token
-        const token = res.data.token;
         localStorage.setItem("admin", JSON.stringify(res.data));
         // Update the authenticated state
         this.authService.isLoggedIn$.next(true);
